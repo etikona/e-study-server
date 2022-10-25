@@ -18,7 +18,11 @@ app.get('/courses', (req, res) => {
 app.get('/courses/:id', (req, res) => {
     const id = req.params.id;
     const course = courses.find(p => p.id == id);
-    res.send(course)
+    if(course){
+
+        res.send(course)
+    }
+    res.send("Sorry, This Course isn't available")
 })
 
 app.listen(port, () => {
