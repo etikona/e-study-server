@@ -18,15 +18,21 @@ app.get('/courses', (req, res) => {
 app.get('/courses/:id', (req, res) => {
     const id = req.params.id;
     const course = courses.find(p => p.id == id);
-    if(course){
+    res.send(course)
+    // if(course){
 
-        res.send(course)
-    }
-    res.send("Sorry, This Course isn't available")
+    //     res.send(course)
+    // }
+    // res.send("Sorry, This Course isn't available")
 })
+
+app.get('/checkout/:id', (req, res) => {
+    const id = req.params.id;
+    const checkout = courses.find(check => check.id == id);
+    res.send(checkout)
+} )
 
 app.listen(port, () => {
     console.log("server is running", port);
 })
 
-module.exports = app;
